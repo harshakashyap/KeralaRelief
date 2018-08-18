@@ -5,11 +5,14 @@ package com.example.kashyap.keralarelief;
  */
 
 public class Data {
-    String key, value;
+    Clothes Clothes;
+    Food Food;
+    Utilities Utilities;
 
-    Data(String key, String value)
+    Data(Clothes C, Food F, Utilities U)
     {
-        this.key = key;
-        this.value = value;
+        this.Clothes = C;
+        this.Food = F;
+        this.Utilities = U;
     }
 }

@@ -1,7 +1,7 @@
 package com.example.kashyap.keralarelief;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -25,15 +25,16 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final MediaType MEDIA_TYPE = MediaType.parse("application/json");
     EditText ET;
     String string, jsonstring;
     JSONObject jsonObject;
     OkHttpClient okHttpClient;
-    public static final MediaType MEDIA_TYPE = MediaType.parse("application/json");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.send_data);
         ET = findViewById(R.id.editText);
         //jsonObject = new JSONObject();
     }
@@ -49,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }*/
         okHttpClient = new OkHttpClient();
-        Data D = new Data("Key","Harsha");
-        jsonstring = gson.toJson(D);
+       /* Data D = new Data(new Clothes(12,0),new Food(000,23), new Utilities(0,0));
+        jsonstring = gson.toJson(D);*/
         RequestBody requestBody = RequestBody.create(MEDIA_TYPE,jsonstring);
         final Request request = new Request.Builder().url("http://192.168.2.14:3000/users/test")
                                 .post(requestBody)
